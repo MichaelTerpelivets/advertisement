@@ -1,4 +1,4 @@
-<div class="wrap">
+
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -12,16 +12,18 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="logo" href="{{ url('/') }}">
+                <img width="30" height="30" src="{{asset('/images/front/logo.png')}}"/>
+
                 {{ config('app.name', 'Advertisement') }}
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
+            <!--ul class="nav navbar-nav">
                 &nbsp;
-            </ul>
+            </ul-->
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">

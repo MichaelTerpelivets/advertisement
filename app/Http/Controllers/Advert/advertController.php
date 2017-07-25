@@ -15,7 +15,7 @@ class advertController extends Controller
      */
     public function create()
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect('/login');
         }
         return view('advert.add_advert');
@@ -28,12 +28,15 @@ class advertController extends Controller
      */
     public function store(Request $request)
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect('/login');
         }
-        $this->validate($request,[
-            'title'=>'required|max:255',
-            'description'=>'required|min:15'
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required|min:15'
+        ], [
+            'description.required' => 'Данное поле обязательное к заполнению.',
+            'description.min' => 'Минимальная длина текста не меншье 15 символов.',
         ]);
         $add_advert = new Advert();
         $add_advert->title = strip_tags($request->title);
@@ -51,7 +54,7 @@ class advertController extends Controller
     public function show($id)
     {
         $advert = Advert::find($id);
-        return view('advert.show_advert',compact('advert'));
+        return view('advert.show_advert', compact('advert'));
     }
 
     /**
@@ -61,11 +64,11 @@ class advertController extends Controller
      */
     public function edit($id)
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect('/login');
         }
         $edit_advert = Advert::find($id);
-        return view('advert.edit_advert',compact('edit_advert'));
+        return view('advert.edit_advert', compact('edit_advert'));
     }
 
     /**
@@ -76,18 +79,21 @@ class advertController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect('/login');
         }
-        $update_advert= Advert::find($id);
-        if(!$update_advert){
+        $update_advert = Advert::find($id);
+        if (!$update_advert) {
             return back();
         }
-        $this->validate($request,[
-            'title'=>'required|max:255',
-            'description'=>'required|min:15'
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required|min:15'
+        ], [
+            'description.required' => 'Данное поле обязательное к заполнению.',
+            'description.min' => 'Минимальная длина текста не меншье 15 символов.',
         ]);
-        $update_advert->title= strip_tags($request->title);
+        $update_advert->title = strip_tags($request->title);
         $update_advert->description = strip_tags($request->description);
         $update_advert->save();
         return redirect('/');
@@ -100,7 +106,7 @@ class advertController extends Controller
      */
     public function destroy($id)
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect('/login');
         }
         $delete = Advert::find($id);

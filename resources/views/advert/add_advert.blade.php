@@ -13,8 +13,9 @@
                                 <div class="col-sm-10"><input type="text" name="title" class="form-control" required></div>
                             </div>
                             <div class="hr-line-dashed"></div>
+                            @if($errors->has('description'))<p
+                                    class="help-block">{{$errors->first('description')}}</p>@endif
                             <div class="form-group"><label class="col-sm-2 control-label">Описание</label>
-
                                 <div class="col-sm-10"><textarea name="description" class="form-control"></textarea></div>
                             </div>
                             <div class="hr-line-dashed"></div>

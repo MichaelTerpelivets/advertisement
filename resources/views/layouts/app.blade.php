@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'advertisement') }}</title>
 
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}"/>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
 
 
@@ -19,14 +20,15 @@
     <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
     {{--<title></title>--}}
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 <body>
-<div id="app">
+<div id="app" class="wrap">
     @include('layouts.nav_bar')
     @yield('content')
-    @include('layouts.footer')
+    
 </div>
+@include('layouts.footer')
 
 <!-- Scripts -->
 {{--<script src="{{ asset('js/app.js') }}"></script>--}}

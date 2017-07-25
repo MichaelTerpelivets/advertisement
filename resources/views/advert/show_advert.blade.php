@@ -2,15 +2,15 @@
 @section('content')
     <div class="container">
         <div class="wrapper wrapper-content">
-            <div class="row animated fadeInRight">
+            <div class="row ">
                 <div class="col-md-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Обьявление</h5>
+                            <h2>Обьявление</h2>
                         </div>
-                        <div>
+                        <div class="thumb">
                             <div class="ibox-content no-padding border-left-right">
-                                <img alt="image" class="img-responsive" src="{{asset('images/front/pexels-photo-442150.jpeg')}}">
+                                <img alt="image" class="img-responsive" src="{{asset('images/front/o1.jpeg')}}">
                             </div>
                             <div class="ibox-content profile-content">
                                 <h4><strong>{{$advert->author->name}}</strong></h4>
@@ -42,11 +42,11 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="ibox float-e-margins">
+                    <div >
                         <div class="ibox-title">
-                            <h5>Описание</h5>
+                            <h2>Описание</h2>
                         </div>
-                        <div class="ibox-content">
+                        <div class="thumb">
                             <div>
                                 <div class="feed-activity-list">
                                     <div class="feed-element">
