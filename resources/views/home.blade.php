@@ -7,7 +7,7 @@
             <h1>Сайт для обьявлений</h1>
             <p>Данный сайта сайт выведет Ваше в ТОП</p>
             @if(Auth::check())
-                <button class="btn">Создать обьявление >></button>
+                <a href="{{route('adverts.create')}}" class="btn">Создать обьявление >></a>
             @endif
         </div>
     </section>
@@ -16,149 +16,24 @@
         <div class="container">
             <header>Обьявления</header>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="item thumbnail">
-                        <img src="{{asset('images/front/pexels-photo-442150.jpeg')}}" height="200" width="600"/>
-                        <h3>Название проекта</h3>
-                        <div class="description">Краткое описание проекта</div>
-                        <author>Автор: <a href="#">DarthCoder</a></author>
-                        <div class="category">
-                            Категория
-                        </div>
-                        <div class="city">
-                            Город
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                 aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                <span class="sr-only">40% Complete (success)</span>
+                    @foreach($adverts as $advert)
+                    <div class="col-md-6">
+                        <div class="item thumbnail">
+                            <img src="{{asset('images/front/pexels-photo-442150.jpeg')}}" height="200" width="600"/>
+                            <a href="{{route('adverts.show',$advert->id)}}"><h3>{{$advert->title}}</h3></a>
+                            <div class="description">{{$advert->description}}</div>
+                            <author>Автор: <a href="#">{{$advert->author->name}}</a></author>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <b> 40% Просмотров</b>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <b>40%</b>
-                                <br/>
-                                Прогресс
-                            </div>
-                            <div class="col-md-4">
-                                <b>590 грн.</b>
-                                <br/>
-                                Сумма
-                            </div>
-                            <div class="col-md-4">
-                                <b>16 часов</b>
-                                <br/>
-                                Осталось
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item thumbnail">
-                        <img src="{{asset('images/front/pexels-photo-442150.jpeg')}}" height="200" width="600"/>
-                        <h3>Название проекта</h3>
-                        <div class="description">Краткое описание проекта</div>
-                        <author>Автор: <a href="#">DarthCoder</a></author>
-                        <div class="category">
-                            Категория
-                        </div>
-                        <div class="city">
-                            Город
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                 aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                <span class="sr-only">40% Complete (success)</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <b>40%</b>
-                                <br/>
-                                Прогресс
-                            </div>
-                            <div class="col-md-4">
-                                <b>590 грн.</b>
-                                <br/>
-                                Сумма
-                            </div>
-                            <div class="col-md-4">
-                                <b>16 часов</b>
-                                <br/>
-                                Осталось
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item thumbnail">
-                        <img src="{{asset('images/front/pexels-photo-442150.jpeg')}}" height="200" width="600"/>
-                        <h3>Название проекта</h3>
-                        <div class="description">Краткое описание проекта</div>
-                        <author>Автор: <a href="#">DarthCoder</a></author>
-                        <div class="category">
-                            Категория
-                        </div>
-                        <div class="city">
-                            Город
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                 aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                <span class="sr-only">40% Complete (success)</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <b>40%</b>
-                                <br/>
-                                Прогресс
-                            </div>
-                            <div class="col-md-4">
-                                <b>590 грн.</b>
-                                <br/>
-                                Сумма
-                            </div>
-                            <div class="col-md-4">
-                                <b>16 часов</b>
-                                <br/>
-                                Осталось
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item thumbnail">
-                        <img src="{{asset('images/front/pexels-photo-442150.jpeg')}}" height="200" width="600"/>
-                        <h3>Название проекта</h3>
-                        <div class="description">Краткое описание проекта</div>
-                        <author>Автор: <a href="#">DarthCoder</a></author>
-                        <div class="category">
-                            Категория
-                        </div>
-                        <div class="city">
-                            Город
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                 aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                <span class="sr-only">40% Complete (success)</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <b>40%</b>
-                                <br/>
-                                Прогресс
-                            </div>
-                            <div class="col-md-4">
-                                <b>590 грн.</b>
-                                <br/>
-                                Сумма
-                            </div>
-                            <div class="col-md-4">
-                                <b>16 часов</b>
-                                <br/>
-                                Осталось
-                            </div>
-                        </div>
-                    </div>
                 </div>
+                    @endforeach
             </div>
+            <div >{{ $adverts->links() }}</div>
         </div>
     </section>
 
